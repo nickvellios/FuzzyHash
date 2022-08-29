@@ -17,7 +17,7 @@ FuzzyHash allows for both strict type and order hashing, as well as both type co
 Functions can be passed as type map values
 
 ### For example:
-```
+```python
 from types import NoneType
 
 def none_to_zero_len_str(value):
@@ -41,7 +41,7 @@ hash_object_1 == hash_object_2
     Note:  Not all objects are hashable.  JSON strings passed to __init__'s on data parameter will be deserialized into a native Python object.
 
 ### Examples:
-```
+```python
 some_object_1 = {'name': 'Bob Evans', 'title': '', 'edit_log': ['2020-05-01 12:29:25.984355', '2020-05-03 13:05:22.338301', '2020-05-29 19:01:51.871108']}
 some_object_2 = {'name': 'Bob Evans', 'edit_log': []}
 hash_object_1 = FuzzyHash(some_object_1, type_map=type_map)
@@ -51,7 +51,7 @@ hash_object_1 == hash_object_2
 ```
 >>> False
 ```
-```
+```python
 hash_object_1 = FuzzyHash(some_object_1, type_map=type_map, dict_key_ignore=['title', 'edit_log'])
 hash_object_2 = FuzzyHash(some_object_2, type_map=type_map, dict_key_ignore=['title', 'edit_log'])
 hash_object_1 == hash_object_2
